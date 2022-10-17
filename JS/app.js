@@ -23,7 +23,7 @@ function divide(num1 , num2){
     return result    
 }
 
-// Funciton to reciver numbrs and call the correct oerator function 
+// function to receive numbers and call the correct operator function 
 
 function operate(num1 , num2, operator){
 if (operator === "+"){

@@ -1,4 +1,98 @@
 *{
     box-sizing: border-box;
-    border: solid 1px red;
+    /* border: solid 1px red; */
+}
+
+h1{
+    font-family: Helvetica, sans-serif;
+    font-size: 56px;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(230, 235, 239);
+}
+.calculator{
+    display: flex;
+    flex-direction: column;
+    height: 700px;
+    width: 540px;
+    background-color: rgb(171, 173, 175);
+    border-radius: 10px;
+    border: solid 3px black;
+    align-items: center;
+
+}
+
+.buttons-top{
+    display: flex;
+    justify-content: space-around;
+}
+.buttons-bottom{
+    display: inline-grid;
+    grid-template-columns: repeat(4, 2fr);
+    gap: 2px;
+    margin: 10px 10px 20px 10px;
+    
+    
+}
+
+button{
+    border: rgb(0, 0, 0) solid 3px;
+    height: 1.8em;
+    width: 2.3em;
+    border-radius: 10px;
+    background-color: rgb(227, 233, 234);
+    margin: 8px;
+    font-family: Helvetica, sans-serif;
+    font-size: 2.8em;
+    font-weight: 600;
+}
+
+.display{
+    margin: 30px 15px 15px 15px;
+    height: 150px;
+    width: 468px;
+    background-color: rgb(227, 233, 234);
+    gap: 10px;
+    align-self: center;
+    border-radius: 10px;
+    border: solid 3px black;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+#clear , #delete{
+    width: 225px;
+}
+ #delete{
+    background-color: rgb(241, 154, 154);
+}
+
+#clear{
+    background-color:  rgb(189, 189, 239);
+}
+
+
+button:hover { 
+    background-color: rgb(185, 213, 240);
+  }
+
+
+.big-number{
+    font-family: Helvetica, sans-serif;
+    font-size: 3em;
+    font-weight: 700;
+    margin: 0px 15px 15px 0px;
+}
+
+.small-numbers{
+    font-family: Helvetica, sans-serif;
+    font-size: 1.5em;
+    font-weight: 400;
+    margin: 15px 15px 0px 0px;
 }
