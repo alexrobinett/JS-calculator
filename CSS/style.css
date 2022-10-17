@@ -96,3 +96,7 @@ button:hover {
     font-weight: 400;
     margin: 15px 15px 0px 0px;
 }
+
+.operations{
+    background-color: rgb(250, 195, 95);
+}
