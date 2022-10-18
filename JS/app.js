@@ -82,6 +82,9 @@ BUTTONS.forEach((button) => {
             }
             console.log(`number of operations performed:${numberOperations}`)
       }else if(button.id == "operate"){
+        if(storedValue == 0 || storedValue == ""){
+            return
+        }else
         result = operate(Number(displayValue) , Number(storedValue), operator)
         displayResult()
         displayValue = ""
@@ -98,6 +101,8 @@ function updateDisplay(){
 }
 
 function displayResult(){
-
+    if (result == "Infinity"){
+        INPUT_NUMBER_DISPLAY.textContent = "LMAO"
+    }else
     INPUT_NUMBER_DISPLAY.textContent = result
 }
