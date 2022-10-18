@@ -1,6 +1,8 @@
 let displayValue = ""
 let storedValue = ""
-let operator =
+let operator
+let numberOperations = 0 
+let result 
 // Functions for Math
 function add (num1 , num2) {
 	let result = num1 + num2
@@ -9,7 +11,7 @@ function add (num1 , num2) {
 };
 
 function subtract(num1, num2) {
-	let result = num1 - num2
+	let result = num2 - num1
     console.log(result)
     return result
 };
@@ -21,7 +23,7 @@ function multiply (num1 , num2) {
 };
 
 function divide(num1 , num2){
-    let result = num1 / num2
+    let result = num2 / num1
     console.log(result)
     return result    
 }
@@ -53,31 +55,38 @@ BUTTONS.forEach((button) => {
     
     button.addEventListener('click', () => {
       if(button.classList == "num"){
+        displayValue += Number(button.id)
         updateDisplay()
-        displayValue += button.id
-        updateDisplay()
-        console.log(storedValue)
       }else if(button.id == "clear"){
         displayValue = 0
         storedValue = 0
+        numberOperations = 0
         updateDisplay()
         displayValue = ""
       }else if(button.classList == "operations"){
-            operator = button.id
-            storedValue = operate(Number(storedValue) , Number(displayValue) , operator)
-            displayValue = storedValue
-            updateDisplay()
-            displayValue = ""
-        console.log(`the current number ${displayValue} and the stored value is ${storedValue}`)
+            if(numberOperations < 1){
+                operator = button.id
+                storedValue = displayValue
+                displayValue = 0
+                updateDisplay()
+                displayValue = ""
+                numberOperations++
+            }else if (numberOperations >= 1){
+                result = operate(Number(displayValue) , Number(storedValue), operator)
+                console.log(result)
+                storedValue = result 
+                operator = button.id
+                displayResult()
+                displayValue = ""
+                numberOperations++
+            }
+            console.log(`number of operations performed:${numberOperations}`)
       }else if(button.id == "operate"){
-        displayValue = operate(Number(storedValue) , Number(displayValue) , operator)
-        if(isNaN(displayValue)){
-            displayValue = "Don't divide by zero dummy!"
-            updateDisplay()
-            displayValue = ""
-        }else
-        updateDisplay()
+        result = operate(Number(displayValue) , Number(storedValue), operator)
+        displayResult()
         displayValue = ""
+        numberOperations = 1
+
       }
      
     });
@@ -86,4 +95,9 @@ BUTTONS.forEach((button) => {
 function updateDisplay(){
     
     INPUT_NUMBER_DISPLAY.textContent = displayValue
+}
+
+function displayResult(){
+
+    INPUT_NUMBER_DISPLAY.textContent = result
 }
