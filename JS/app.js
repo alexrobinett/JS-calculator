@@ -54,8 +54,15 @@ const INPUT_NUMBER_DISPLAY = document.querySelector(".big-number")
 BUTTONS.forEach((button) => {
     
     button.addEventListener('click', () => {
-      if(button.classList == "num"){
-        displayValue += Number(button.id)
+      if(button.id == "."){
+        if(displayValue.includes(".")){
+            return
+        }else displayValue += button.id
+              updateDisplay()
+
+      }else if(button.classList == "num"){
+        displayValue += button.id
+        console.log(button.id)
         updateDisplay()
       }else if(button.id == "clear"){
         displayValue = 0
